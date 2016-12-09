@@ -16,6 +16,7 @@ public class BiasedRandomChooser extends RandomChooser {
 		if (chosen == -1) {
 			return super.choose(choices);
 		} else {
+			System.out.println("Choosing biased: " + chosen);
 			return choices[chosen];
 		}
 	}
@@ -32,7 +33,7 @@ public class BiasedRandomChooser extends RandomChooser {
 		int chosen = -1;
 		for (int i = 0; i < choices.length; i++) {
 			if (choices[i].equalsIgnoreCase("yrym")) {
-				chosen = -1;
+				chosen = i;
 				break;
 			} else if (checkName(choices[i])) {
 				chosen = i;
