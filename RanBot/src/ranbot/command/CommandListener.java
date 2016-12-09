@@ -1,7 +1,6 @@
 
 package ranbot.command;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,12 +21,12 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 		actionCommandHandlerMap = new HashMap<>();
 
 		final ChooserCommandHandler chooseChooser = new ChooserCommandHandler(new BiasedRandomChooser());
-		final ImageUploaderCommandHandler lewdRanUploader = new ImageUploaderCommandHandler(
-				new File("Insert lood pics directory here"),
-				(dir, filename) -> filename.toLowerCase().contains("ran yakumo"));
+//		final ImageUploaderCommandHandler lewdRanUploader = new ImageUploaderCommandHandler(
+//				new File("Insert lood pics directory here"),
+//				(dir, filename) -> filename.toLowerCase().contains("ran yakumo"));
 
 		actionCommandHandlerMap.put("choose", chooseChooser);
-		actionCommandHandlerMap.put("lood", lewdRanUploader);
+//		actionCommandHandlerMap.put("lood", lewdRanUploader);
 	}
 
 	@Override
