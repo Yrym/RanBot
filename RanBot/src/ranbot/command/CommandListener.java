@@ -1,7 +1,6 @@
 
 package ranbot.command;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,12 +21,13 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 		actionCommandHandlerMap = new HashMap<>();
 
 		final ChooserCommandHandler chooseChooser = new ChooserCommandHandler(new BiasedRandomChooser());
-		final ImageUploaderCommandHandler lewdRanUploader = new ImageUploaderCommandHandler(
-				new File("Insert lood pics directory here"),
-				(dir, filename) -> filename.toLowerCase().contains("ran yakumo"));
+//		final ImageUploaderCommandHandler lewdRanUploader = new ImageUploaderCommandHandler(
+//				new File("Insert lood pics directory here"),
+//				(dir, filename) -> filename.toLowerCase().contains("ran yakumo"));
 
 		actionCommandHandlerMap.put("choose", chooseChooser);
-		actionCommandHandlerMap.put("lood", lewdRanUploader);
+//		actionCommandHandlerMap.put("lood", lewdRanUploader);
+		actionCommandHandlerMap.put("help", new HelpCommandHandler());
 	}
 
 	@Override
@@ -48,6 +48,7 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 		}
 
 		try {
+			System.out.println("Handling command with action: " + command.getAction());
 			handler.processCommand(command);
 		} catch (DiscordException | MissingPermissionsException | RateLimitException e) {
 			e.printStackTrace();
@@ -71,8 +72,10 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 	private MessageCommand getCommand(IMessage message) {
 		String content = message.getContent().trim();
 
+		// FIXME Command keyword should always be at index 0. Keyword should be
+		// set by admin instead of hardcoded.
 		int spaceIndex = content.indexOf(" ");
-		if (spaceIndex == -1 || content.substring(0, spaceIndex).indexOf(":ran:") != 1) {
+		if (spaceIndex == -1 || content.substring(0, spaceIndex).indexOf(getCommandKeyword()) != 1) {
 			System.out.println("message not a command: " + content);
 			return null;
 		}
@@ -88,4 +91,14 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 		}
 	}
 
+	/**
+	 * Retrieves the command keyword that the this listener accepts.
+	 * 
+	 * @return The command keyword
+	 */
+	public static String getCommandKeyword() {
+		// FIXME This should not be here, and should not be hardcoded.
+		return ":ran:";
+	}
+	
 }
