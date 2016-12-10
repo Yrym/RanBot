@@ -12,6 +12,6 @@ public class HelpCommandHandler implements CommandHandler {
 	public void processCommand(MessageCommand messageCommand)
 			throws DiscordException, MissingPermissionsException, RateLimitException {
 		IChannel channel = messageCommand.getChannel();
-		channel.sendMessage(Messages.HELP_MESSAGE.getMessage(CommandListener.getCommandKeyword()));
+		channel.sendMessage(Messages.HELP_MESSAGE.getMessage(CommandUtils.getCommandKeyword()));
 	}
 }
