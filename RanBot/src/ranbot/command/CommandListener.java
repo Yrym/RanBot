@@ -22,8 +22,10 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
     actionCommandHandlerMap = new HashMap<>();
 
     final ChooserCommandHandler chooseChooser = new ChooserCommandHandler(new BiasedRandomChooser());
+    final KickCommandHandler kickCommand = new KickCommandHandler();
 
     actionCommandHandlerMap.put("choose", chooseChooser);
+    actionCommandHandlerMap.put("kick", kickCommand);
     actionCommandHandlerMap.put("help", new HelpCommandHandler());
     actionCommandHandlerMap.put("war", new WarCommandHandler());
   }
