@@ -18,6 +18,7 @@ public class WarCommandHandler implements CommandHandler {
   public WarCommandHandler() {
     warCommandHandlerMap = new HashMap<>();
     warCommandHandlerMap.put("join", new WarRegistrationCommandHandler());
+    warCommandHandlerMap.put("stats", new WarStatsCommandHandler());
   }
 
   @Override

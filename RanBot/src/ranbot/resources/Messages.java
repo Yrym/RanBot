@@ -8,8 +8,8 @@ public enum Messages {
   WAR_MESSAGE("war"),
   WAR_REGISTER_EXISTING("war.register.existing"),
   WAR_REGISTER_NEW("war.register.new"),
-  WAR_STATS_CIVILIAN_MESSAGE("war.stats.non_participant.message")
-  ;
+  WAR_STATS_PARTICIPANT("war.stats.participant"),
+  WAR_STATS_NON_PARTICIPANT("war.stats.non_participant");
 
   private static ResourceBundle bundle;
   static {

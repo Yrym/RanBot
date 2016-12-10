@@ -28,10 +28,10 @@ public class WarDBUtils {
         if (!rs.next()) {
           return null;
         } else {
-          long joinDate = rs.getLong("join_date");
-          long money = rs.getLong("money");
-          Commander commander = new Commander(id, joinDate);
-          commander.setMoney(money);
+          Commander commander = new Commander(id, rs.getLong("join_time"));
+          commander.setExp(rs.getLong("exp"));
+          commander.setRankId(rs.getInt("rank_id"));
+          commander.setMoney(rs.getLong("money"));
           return commander;
         }
       }
