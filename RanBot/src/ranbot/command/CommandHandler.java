@@ -6,4 +6,5 @@ import sx.blah.discord.util.RateLimitException;
 
 public interface CommandHandler {
 	void processCommand(MessageCommand messageCommand) throws DiscordException, MissingPermissionsException, RateLimitException ;
+	// aidora wuz heer xd
 }
