@@ -39,8 +39,13 @@ public class Main {
 						client.logout();
 					} else if (message.getContent().toLowerCase().contains("knock knock")){
 						message.getChannel().sendMessage("Who's there?");
+					}  else if (message.getAuthor().getID().contains("252959293240901644")
+						    || (message.getAuthor().getID().contains("101207043343409152"))){
+					message.getChannel().sendMessage("H-h-help h-hentaiiii!");
+					} else if (message.getContent().toLowerCase().contains("god")){
+						message.getChannel().sendMessage("The only god of this server is S-Squishhh s-sama!");
 					} else {
-						message.getChannel().sendMessage("reply");
+						message.getChannel().sendMessage("Y-You want loods don't you?");
 					}
 				} catch (Exception e) {
 					e.printStackTrace();
