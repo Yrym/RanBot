@@ -8,6 +8,8 @@ public enum Messages {
   WAR_MESSAGE("war"),
   WAR_REGISTER_EXISTING("war.register.existing"),
   WAR_REGISTER_NEW("war.register.new"),
+  WAR_DEREGISTER_EXISTING("war.deregister.existing"),
+  WAR_DEREGISTER_NEW("war.deregister.new"),
   WAR_STATS_PARTICIPANT("war.stats.participant"),
   WAR_STATS_NON_PARTICIPANT("war.stats.non_participant");
 
