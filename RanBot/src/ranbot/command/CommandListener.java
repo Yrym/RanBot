@@ -6,6 +6,7 @@ import java.util.Map;
 
 import ranbot.command.chooser.BiasedRandomChooser;
 import ranbot.command.chooser.ChooserCommandHandler;
+import ranbot.command.mtg.MtgCommandHandler;
 import sx.blah.discord.api.events.IListener;
 import sx.blah.discord.handle.impl.events.MessageReceivedEvent;
 import sx.blah.discord.handle.obj.IMessage;
@@ -30,6 +31,7 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 		actionCommandHandlerMap.put("kick", kickCommand);
 //		actionCommandHandlerMap.put("lood", lewdRanUploader);
 		actionCommandHandlerMap.put("help", new HelpCommandHandler());
+		actionCommandHandlerMap.put("mtg", new MtgCommandHandler());
 	}
 
 	@Override
@@ -95,12 +97,12 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
 
 	/**
 	 * Retrieves the command keyword that the this listener accepts.
-	 * 
+	 *
 	 * @return The command keyword
 	 */
 	public static String getCommandKeyword() {
 		// FIXME This should not be here, and should not be hardcoded.
 		return ":ran:";
 	}
-	
+
 }
