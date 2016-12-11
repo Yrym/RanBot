@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 
 import ranbot.database.DatabaseManager;
 
@@ -28,7 +29,7 @@ public class WarDBUtils {
         if (!rs.next()) {
           return null;
         } else {
-          Commander commander = new Commander(id, rs.getLong("join_time"));
+          Commander commander = new Commander(id, Instant.ofEpochMilli(rs.getLong("join_time")));
           commander.setExp(rs.getLong("exp"));
           commander.setRankId(rs.getInt("rank_id"));
           commander.setMoney(rs.getLong("money"));

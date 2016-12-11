@@ -2,12 +2,10 @@ package ranbot.command.war;
 
 import java.sql.SQLException;
 
-import org.apache.commons.lang3.time.DateFormatUtils;
-
 import ranbot.command.CommandHandler;
 import ranbot.command.MessageCommand;
 import ranbot.resources.Messages;
-import ranbot.utils.DateFormats;
+import ranbot.utils.InstantFormatterUtils;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IUser;
 import sx.blah.discord.util.DiscordException;
@@ -27,7 +25,7 @@ public class WarStatsCommandHandler implements CommandHandler {
       if (commander == null) {
         channel.sendMessage(Messages.WAR_STATS_NON_PARTICIPANT.getMessage(author.getName()));
       } else {
-        String formattedJoinDate = DateFormatUtils.formatUTC(commander.getJoinTime(), DateFormats.FULL_DATE_FORMAT);
+        String formattedJoinDate = InstantFormatterUtils.formatFullDateUTC(commander.getJoinTime());
         channel.sendMessage(Messages.WAR_STATS_PARTICIPANT.getMessage(author.getName(), commander.getRankTitle(),
             formattedJoinDate, commander.getExp(), commander.getMoney()));
       }

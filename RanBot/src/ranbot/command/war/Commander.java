@@ -1,17 +1,16 @@
 package ranbot.command.war;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
+import java.time.Instant;
 
 public class Commander {
   private final String id;
   private int rankId;
   private long exp;
   private long money;
-  private final long joinTime;
+  private long lastDailiesTime;
+  private final Instant joinTime;
 
-  public Commander(String id, long joinDate) {
+  public Commander(String id, Instant joinDate) {
     this.id = id;
     this.joinTime = joinDate;
 
@@ -84,24 +83,25 @@ public class Commander {
   }
 
   /**
-   * Retrieves the time the user has started being a commander. This is in UNIX
-   * time.
+   * Retrieves the Instant that the user has started being a commander.
    * 
-   * @return The time the user has joined.
+   * @return the Instant that the user has joined.
    */
-  public long getJoinTime() {
+  public Instant getJoinTime() {
     return joinTime;
   }
 
+  public void setLastDailiesTime(long lastDailiesTime) {
+    this.lastDailiesTime = lastDailiesTime;
+  }
+
   /**
-   * Retrieves the date when the user has started being a commander. This is in
-   * UTC.
+   * Retrieves the time the user has retrieved their dailies. If this is
+   * {@code null}, then the user has not initiated the dailies yet.
    * 
-   * @return The date the user has joined.
+   * @return The time the user had last retrieved dailies.
    */
-  public Date getJoinDate() {
-    Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-    calendar.setTimeInMillis(getJoinTime());
-    return calendar.getTime();
+  public long getLastDailiesTime() {
+    return lastDailiesTime;
   }
 }
