@@ -7,7 +7,7 @@ public class Commander {
   private int rankId;
   private long exp;
   private long money;
-  private long lastDailiesTime;
+  private Instant lastDailiesTime;
   private final Instant joinTime;
 
   public Commander(String id, Instant joinDate) {
@@ -91,17 +91,17 @@ public class Commander {
     return joinTime;
   }
 
-  public void setLastDailiesTime(long lastDailiesTime) {
+  public void setLastDailiesTime(Instant lastDailiesTime) {
     this.lastDailiesTime = lastDailiesTime;
   }
 
   /**
-   * Retrieves the time the user has retrieved their dailies. If this is
+   * Retrieves the Instant that the user has retrieved their dailies. If this is
    * {@code null}, then the user has not initiated the dailies yet.
    * 
-   * @return The time the user had last retrieved dailies.
+   * @return The Instant that the user had last retrieved dailies.
    */
-  public long getLastDailiesTime() {
+  public Instant getLastDailiesTime() {
     return lastDailiesTime;
   }
 }

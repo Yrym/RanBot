@@ -30,7 +30,7 @@ public class WarStatsCommandHandler implements CommandHandler {
             formattedJoinDate, commander.getExp(), commander.getMoney()));
       }
     } catch (SQLException e) {
-      new DiscordException("Unable to retrieve user war stats.");
+      throw new DiscordException("Unable to retrieve user war stats. Cause: " + e.getMessage());
     }
   }
 

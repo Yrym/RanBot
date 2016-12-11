@@ -33,6 +33,7 @@ public class WarDBUtils {
           commander.setExp(rs.getLong("exp"));
           commander.setRankId(rs.getInt("rank_id"));
           commander.setMoney(rs.getLong("money"));
+          commander.setLastDailiesTime(Instant.ofEpochMilli(rs.getLong("last_dailies_time")));
           return commander;
         }
       }

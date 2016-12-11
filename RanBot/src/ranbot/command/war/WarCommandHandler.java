@@ -20,6 +20,7 @@ public class WarCommandHandler implements CommandHandler {
     warCommandHandlerMap.put("join", new WarRegistrationCommandHandler());
     warCommandHandlerMap.put("stats", new WarStatsCommandHandler());
     warCommandHandlerMap.put("leave", new WarDeregistrationCommandHandler());
+    warCommandHandlerMap.put("dailies", new WarDailiesCommandHandler());
   }
 
   @Override
@@ -36,6 +37,7 @@ public class WarCommandHandler implements CommandHandler {
         System.out.println("Unsupported war command.");
         return;
       }
+      System.out.println("Handling war command: " + subCommand);
       commandHandler.processCommand(subCommand);
     }
   }
