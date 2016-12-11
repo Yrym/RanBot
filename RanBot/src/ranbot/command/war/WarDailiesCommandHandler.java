@@ -43,7 +43,7 @@ public class WarDailiesCommandHandler implements CommandHandler {
         channel.sendMessage(Messages.WAR_DAILIES_PARTICIPANT.getMessage(provisions));
       } else {
         String missingRequirements = provisionsManager.getMissingRequirements(commander);
-        channel.sendMessage(Messages.WAR_DAILES_PARTICIPANT_NO_AVAILABLE_PROVISIONS.getMessage(missingRequirements));
+        channel.sendMessage(Messages.WAR_PROVISIONS_MISSING_REQUIREMENTS.getMessage(author.getName(), missingRequirements));
       }
     } catch (SQLException e) {
       throw new DiscordException("Failed to retrieve data for dailies. Cause: " + e.getMessage());

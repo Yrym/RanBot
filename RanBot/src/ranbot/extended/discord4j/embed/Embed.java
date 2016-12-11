@@ -1,7 +1,7 @@
 package ranbot.extended.discord4j.embed;
 
-import java.time.Instant;
-import java.time.temporal.ChronoField;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class Embed {
   private String description;
   // private String type; // Unnecessary. Always rich according to discord api.
   private String url;
-  private long timestamp;
+  private String timestamp;
   private int color;
   private EmbedFooter footer;
   private EmbedImage image;
@@ -22,18 +22,24 @@ public class Embed {
   private EmbedAuthor author;
   private List<EmbedField> fields;
 
-  public Embed(String title, String description) {
-    this.title = title;
-    this.description = description;
+  public Embed() {
     this.fields = new ArrayList<>();
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-  public void setTimestamp(Instant timestamp) {
-    this.timestamp = timestamp.get(ChronoField.MILLI_OF_SECOND);
+  public void setTimestamp(LocalDateTime timestamp) {
+    this.timestamp = DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(timestamp);
   }
 
   public void setColor(int r, int g, int b) {
