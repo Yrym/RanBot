@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 public enum Messages {
   HELP_MESSAGE("help_message"),
+  SV_SEARCH_FAILED("sv_search_failed"),
+  SV_SEARCH_RESULT("sv_search_result"),
   WAR_MESSAGE("war"),
   WAR_REGISTER_EXISTING("war.register.existing"),
   WAR_REGISTER_NEW("war.register.new"),

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import ranbot.command.chooser.BiasedRandomChooser;
 import ranbot.command.chooser.ChooserCommandHandler;
+import ranbot.command.mtg.MtgCommandHandler;
+import ranbot.command.sv.SVCommandHandler;
 import ranbot.command.war.WarCommandHandler;
 import sx.blah.discord.api.events.IListener;
 import sx.blah.discord.handle.impl.events.MessageReceivedEvent;
@@ -27,6 +29,8 @@ public class CommandListener implements IListener<MessageReceivedEvent> {
     actionCommandHandlerMap.put("choose", chooseChooser);
     actionCommandHandlerMap.put("kick", kickCommand);
     actionCommandHandlerMap.put("help", new HelpCommandHandler());
+    actionCommandHandlerMap.put("mtg", new MtgCommandHandler());
+    actionCommandHandlerMap.put("sv", new SVCommandHandler());
     actionCommandHandlerMap.put("war", new WarCommandHandler());
   }
 
