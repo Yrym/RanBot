@@ -15,12 +15,14 @@ public enum Messages {
   WAR_STATS_PARTICIPANT("war.stats.participant"),
   WAR_STATS_NON_PARTICIPANT("war.stats.non_participant"),
   WAR_DAILIES_PARTICIPANT("war.dailies.participant"),
-  WAR_DAILES_PARTICIPANT_NO_AVAILABLE_PROVISIONS("war.dailies.participant.no_available_provisions"),
   WAR_DAILIES_NON_PARTICIPANT("war.dailies.non_participant"),
   WAR_PROVISIONS_MISSING_REQUIREMENTS("war.provisions.missing_requirements"),
   WAR_PROVISIONS_MISSING_REQUIREMENTS_TIME("war.provisions.missing_requirements.time"),
   WAR_PROVISIONS_NONE("war.provisions.nothing"),
-  WAR_PROVISIONS_MONEY("war.provisions.money");
+  WAR_PROVISIONS_MONEY("war.provisions.money"),
+  WAR_STATS_RANK("war.stats.rank"),
+  WAR_STATS_EXP("war.stats.exp"),
+  WAR_STATS_MONEY("war.stats.money");
 
   private static ResourceBundle bundle;
   static {
